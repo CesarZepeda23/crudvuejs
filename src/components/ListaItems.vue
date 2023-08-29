@@ -1,36 +1,42 @@
 <template>
- <div class="container">
+  <div class="container">
     <h2>Empleados</h2>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Nombres</th>
-          <th scope="col">Apellidos</th>
-          <th scope="col">Fecha de nacimiento</th>
-          <th scope="col">Puesto</th>
-          <th scope="col">Acciones</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="empleado in empleados" :key="empleado.id">
-          <th>{{empleado.Id}}</th>
-          <td>{{empleado.nombres}}</td>
-          <td>{{empleado.apellidos}}</td>
-          <td>{{empleado.fecha_nacimiento}}</td>
-          <td>{{empleado.posicion}}</td>
-          <td>
-            <button type="button" class="btn btn-primary" @click="editarEmpleado(empleado)">Editar</button>
-            <button type="button" class="btn btn-danger" @click="eliminarEmpleado(empleado.id)">Eliminar</button>
-          </td>
-
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="empleado in empleados" :key="empleado.id">
+            <th>{{ empleado.id }}</th>
+            <td>{{ empleado.nombres }}</td>
+            <td>{{ empleado.apellidos }}</td>
+            <td>{{ empleado.fecha_nacimiento }}</td>
+            <td>{{ empleado.posicion }}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="">
+                <button type="button" class="btn btn-primary">Editar</button>
+                <button
+                  type="button"
+                  v-on:click="borrarEmpleado(empleado.id)"
+                  class="btn btn-danger"
+                >
+                  Borrar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -57,6 +63,18 @@ export default {
           }
         })
         .catch(console.log);
+    },
+    borrarEmpleado(id) {
+      console.log(id);
+      fetch("http://localhost/empleados/?borrar" + id)
+      
+        .then((response) => response.json())
+        .then((datosResponse) => {
+
+          console.log(datosResponse)
+          window.location.assign('/')
+        })
+        .catch(console.log)
     },
   },
 };
