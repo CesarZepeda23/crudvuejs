@@ -1,5 +1,5 @@
 <template>
     <div>
-        Hola
+        Hola Editar
     </div>
 </template>

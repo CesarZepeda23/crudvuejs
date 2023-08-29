@@ -1,17 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Listar from'../components/Listar.vue'
-import Editar from'../components/Listar.vue'
-import Crear from'../components/Listar.vue'
+import Listar from'../components/ListaItems.vue'
+import Editar from'../components/EditarForm.vue'
+import Crear from'../components/CrearForm.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/listar',
     name: 'Listar',
     component: Listar
   },
