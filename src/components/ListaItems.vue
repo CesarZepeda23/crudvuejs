@@ -66,15 +66,13 @@ export default {
     },
     borrarEmpleado(id) {
       console.log(id);
-      fetch("http://localhost/empleados/?borrar" + id)
-      
+      fetch("http://localhost/empleados/?borrar=" + id)
         .then((response) => response.json())
         .then((datosResponse) => {
-
-          console.log(datosResponse)
-          window.location.assign('/')
+          console.log(datosResponse);
+          window.location.assign("/");
         })
-        .catch(console.log)
+        .catch(console.log);
     },
   },
 };
