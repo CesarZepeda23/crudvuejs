@@ -10,7 +10,7 @@ const routes = [
     component: Listar
   },
   {
-    path: '/editar',
+    path: '/editar/:id',
     name: 'Editar',
     component: Editar
   },

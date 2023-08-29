@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h2>Empleados</h2>
+    <router-link to="/crear" class="btn btn-success">Dar de alta</router-link>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -22,7 +23,11 @@
             <td>{{ empleado.posicion }}</td>
             <td>
               <div class="btn-group" role="group" aria-label="">
-                <button type="button" class="btn btn-primary">Editar</button>
+                <router-link
+                  :to="{ name: 'Editar', params: { id:empleado.id } }"
+                  class="btn btn-primary"
+                  >Editar</router-link
+                >
                 <button
                   type="button"
                   v-on:click="borrarEmpleado(empleado.id)"

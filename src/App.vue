@@ -11,13 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <router-link to="/" class="nav-link">Listar</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/editar" class="nav-link">Editar</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/crear" class="nav-link">Crear</router-link>
+          <router-link to="/" class="nav-link">Empleados</router-link>
         </li>
       </ul>
     </div>
